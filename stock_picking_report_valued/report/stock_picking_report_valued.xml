@@ -19,6 +19,7 @@
                 </th>
                 <th class="text-end"><strong>Subtotal</strong></th>
                 <th class="text-end"><strong>Taxes</strong></th>
+                <th t-if="has_hs_code"><strong>HS Code</strong></th>
             </t>
         </xpath>
         <xpath expr="//th[@name='th_sml_qty_ordered']" position="attributes">
@@ -124,6 +125,13 @@
                 separator=" "
             />
         </xpath>
+    </template>
+
+    <template id="valued_report_picking_inherit_delivery" inherit_id="delivery.report_delivery_document2">
+
+        <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th/strong[contains(text(),'HS Code')]/parent::th" position="replace">
+        </xpath>
+
     </template>
 
 </odoo>
